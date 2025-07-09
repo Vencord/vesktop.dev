@@ -8,6 +8,7 @@ import IconHeader from "~/components/IconHeader.astro";
 
 import UbuntuIcon from "~/assets/ubuntu.svg";
 import FedoraIcon from "~/assets/fedora.svg";
+import ArchIcon from "~/assets/archlinux.svg";
 import AppImageIcon from "~/assets/appimage.svg";
 
 <Aside type="note">
@@ -28,6 +29,12 @@ import AppImageIcon from "~/assets/appimage.svg";
 </IconHeader>
 <LinkButton href="https://vencord.dev/download/vesktop/amd64/rpm">x64 Download</LinkButton>
 <LinkButton href="https://vencord.dev/download/vesktop/arm64/rpm">arm64 Download</LinkButton>
+
+<IconHeader tag="h4" iconUrl={ArchIcon.src}>
+    AUR (Arch Linux)
+</IconHeader>
+<LinkButton href="https://aur.archlinux.org/packages/vesktop">AUR Web</LinkButton>
+<LinkButton href="https://aur.archlinux.org/cgit/aur.git/snapshot/vesktop.tar.gz">PKGBUILD Snapshot</LinkButton>
 
 <IconHeader tag="h4" iconUrl={AppImageIcon.src}>
     AppImage (Universal)
