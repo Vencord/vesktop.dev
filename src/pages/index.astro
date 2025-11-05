@@ -1,0 +1,143 @@
+---
+import Header from "~/components/Header.astro";
+import StandardSection from "~/components/StandardSection.astro";
+import TriangleSection from "~/components/TriangleSection.astro";
+import Layout from "~/layouts/Layout.astro";
+import "~/styles/main.scss";
+---
+
+<Layout>
+    <Header />
+    <div class="hero">
+        <img src="/favicon.svg" alt="Vesktop Logo" style="width: 140px;" />
+        <h1>Vesktop</h1>
+        <p>Customizable and privacy friendly Discord desktop app!</p>
+        <div>
+            <button>Download</button>
+            <button>Wiki</button>
+        </div>
+    </div>
+
+    <TriangleSection backgroundColor="var(--background-secondary)">
+        <div style="position: relative;">
+            <img src="/example.png" alt="Vesktop Screenshot" class="hero-screenshot" />
+        </div>
+    </TriangleSection>
+
+    <StandardSection backgroundColor="var(--background-tertiary)">
+        <h1>Customizable</h1>
+        <h3>
+            Vesktop comes with <a href="https://example.com">Vencord</a> out of the box, allowing you to customize your Discord
+            experience with many powerful plugins and themes.
+        </h3>
+        <img class="dumb-image" src="/custom.png" alt="Vesktop Customization Screenshot" />
+    </StandardSection>
+
+    <TriangleSection backgroundColor="var(--background-quaternary)">
+        <h1>Privacy friendly</h1>
+        <h3>
+            Vesktop is <a href="https://a.com">open source</a> and does not include any tracking or telemetry. Blocks Discord
+            telemetry out of the box and heavily limits Discord's access to your system.
+        </h3>
+    </TriangleSection>
+
+    <StandardSection backgroundColor="var(--background-primary)">
+        <h1>Lightweight</h1>
+        <h3>
+            Vesktop is much more lightweight than the official Discord app, possibly leading to better performance
+            (depending on your system).
+        </h3>
+    </StandardSection>
+</Layout>
+
+<style>
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 100vw;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        color: var(--tint);
+        font-size: 4rem;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin: 1rem 0 2rem 0;
+        text-align: center;
+        max-width: 600px;
+        color: var(--text-secondary);
+    }
+
+    .hero img {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .hero-screenshot {
+        border: 6px solid var(--background-secondary);
+        border-radius: 20px;
+        box-sizing: border-box;
+        width: 60%;
+        user-select: none;
+        -webkit-user-select: none;
+        z-index: 4;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        margin-bottom: -240px;
+        top: -300px;
+        transition:
+            width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            border 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            position 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media screen and (max-width: 1400px) {
+        .hero-screenshot {
+            width: 90%;
+            top: -150px;
+            margin-bottom: -150px;
+            border-radius: 12px;
+        }
+    }
+
+    .hero button {
+        background-color: var(--tint);
+        border: none;
+        font-weight: 600;
+        color: var(--background-primary);
+        padding: 12px 22px;
+        margin-right: 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .dumb-image {
+        user-select: none;
+        -webkit-user-select: none;
+        width: 60%;
+        border-radius: 20px;
+        transition:
+            width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media screen and (max-width: 1400px) {
+        .dumb-image {
+            width: 90%;
+            border-radius: 12px;
+        }
+    }
+</style>

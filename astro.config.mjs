@@ -16,6 +16,10 @@ export default defineConfig({
             logo: {
                 src: "./src/assets/vesktop.svg"
             },
+            
+            customCss: [
+                "./src/styles/docs.css"
+            ],
 
             social: [
                 { icon: "github", label: "GitHub", href: "https://github.com/Vencord/Vesktop" },

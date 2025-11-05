@@ -14,5 +14,8 @@
         "astro": "^5.14.1",
         "sharp": "^0.34.4",
         "starlight-links-validator": "^0.18.0"
+    },
+    "devDependencies": {
+        "sass-embedded": "^1.93.2"
     }
 }
