@@ -1,0 +1,124 @@
+---
+const encodedSVG = encodeURIComponent(
+    `<svg width='22' height='40' xmlns='http://www.w3.org/2000/svg'><polygon points='0,20 11,0 22,20' fill='#000'/></svg>`
+);
+---
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 96px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+            background 0.3s,
+            height 0.3s;
+        z-index: 1000;
+        overflow: visible;
+    }
+
+    .header.scrolled {
+        background: var(--tint);
+        height: 64px;
+    }
+
+    .header-image {
+        height: 28px;
+        margin-right: 2rem;
+        transition: filter 0.3s;
+        filter: none;
+    }
+
+    .header.scrolled .header-image {
+        filter: brightness(0) invert(1);
+    }
+
+    .header-buttons {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .header-button {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        transition:
+            color 0.3s,
+            font-weight 0.3s,
+            text-decoration 0.3s;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    .header-button:hover {
+        color: var(--text-primary);
+        text-decoration: underline;
+    }
+
+    .header.scrolled .header-button {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    .spikes {
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 100%;
+        height: 20px;
+        pointer-events: none;
+        z-index: 2;
+        mask-repeat: repeat-x;
+        mask-size: 20px 20px;
+        -webkit-mask-repeat: repeat-x;
+        -webkit-mask-size: 20px 20px;
+        background-color: var(--tint);
+        transition:
+            opacity 0.3s,
+            height 0.3s;
+        transform: rotate(180deg);
+        opacity: 0;
+    }
+
+    .header.scrolled .spikes {
+        opacity: 1;
+    }
+</style>
+
+<header class="header" id="main-header">
+    <img src="/header.png" alt="Header Logo" class="header-image" />
+    <nav class="header-buttons">
+        <a href="/" class="header-button">HOME</a>
+        <a href="/wiki" class="header-button">DOCUMENTATION</a>
+        <a href="https://github.com/Vencord/Vesktop" class="header-button" target="_blank" rel="noopener">GITHUB</a>
+        <a href="https://vencord.dev/discord" class="header-button" target="_blank" rel="noopener">DISCORD</a>
+    </nav>
+    <div
+        class="spikes"
+        style={`
+            mask-image: url("data:image/svg+xml;utf8,${encodedSVG}"); 
+            -webkit-mask-image: url("data:image/svg+xml;utf8,${encodedSVG}");
+        `}
+    >
+    </div>
+</header>
+
+<script>
+    window.addEventListener("scroll", () => {
+        const header = document.getElementById("main-header");
+        if (!header) return;
+        if (window.scrollY > 10) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+</script>
